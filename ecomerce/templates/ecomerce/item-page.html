@@ -1,0 +1,48 @@
+{% extends "ecomerce/header.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script type="text/javascript">
+
+    function AjaxAdd(add_url) {
+        $.ajax({
+            url: add_url,
+            success: function(response) 
+            {
+                alert(response);
+                location.reload(true);
+            },
+            error: function(response) {alert(response);}  
+        })
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div id="main" class="container">
+        <div class="row heading-wrap">
+            <div class="span12 heading">
+                <h2>This Product <span></span></h2>
+            </div>
+        </div>
+
+        <div>
+            <div class="span3">
+                <h4>{{item_instance.name}}</h4>
+                <p><span>Brand:</span> {{item_instance.item_brand}}</p>
+                <p><span>Category:</span> {{item_instance.item_category}}</p>
+                <br>
+                <h2>{{item_instance.item_ategory}}</h2>
+                <br>
+                <h4>{{item_instance.description}}</h4>
+                <br>
+                <h4>Price: Rs. {{item_instance.price}}</h4>
+                <br>
+                <img src="{{item_instance.image_url}}" class="img-responsive">
+            </div>
+            <div class="span3">
+                <a href="" onclick='AjaxAdd("{% url 'add-item-to-cart' %}?id={{item_instance.id}}")'><h3>Add To Cart</h3></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

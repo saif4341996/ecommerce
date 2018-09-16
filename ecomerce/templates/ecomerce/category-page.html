@@ -1,0 +1,51 @@
+{% extends "ecomerce/header.html" %}
+
+{% block content %}
+    <div id="main" class="container">
+        <div class="row heading-wrap">
+            <div class="span12 heading">
+                <h2>Featured Products <span></span></h2>
+            </div>
+        </div>
+
+        <div>
+            {% for brand in brands %}
+            	
+            	<div class="row">
+            		
+            		{% for item in items %}
+            			
+            			{% if item.item_brand == brand.name  %}
+                            <div class="span3 product">    
+                                
+                                <div>
+                                    <figure>
+                                        <a href="#"><img src="{{item.image_url}}" alt=""></a>
+                                        <div class="overlay">
+                                            <a href="{{item.image_url}}" class="zoom prettyPhoto"></a>
+                                        </div>
+                                    </figure>
+                                    
+                                    <div class="detail">
+                                        <a href="{% url 'itemPage' item.slug %}">
+                                        <span>${{item.price}}</span>
+                                        <h3>{{item.name}}</h3>
+                                        <p><span>Brand:</span> {{item.item_brand}}</p>
+                                        <p><span>Category:</span> {{item.item_category}}</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        {% endif%}
+            		
+            		{% endfor %}
+            	
+            	</div>
+            
+            {% endfor %}    
+        </div>
+
+    </div>
+
+{% endblock %}

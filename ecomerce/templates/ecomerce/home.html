@@ -1,0 +1,238 @@
+{% extends "ecomerce/header.html" %}
+
+{% block content %}
+
+
+
+                <div class="wrapper">
+                    <div class="container">
+                        <div class="row ">
+
+                            <!-- SLIDER -->
+                            <div class="span9 slider">
+                                <div class="slider-slides">
+                                    
+                                    <div class="slides">
+                                        <a href="#"><img src="http://placehold.it/870x373" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>AWESOME FURNITUR</h1>
+                                            <p><span>50%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                        </div>
+                                    </div>
+                                    <div class="slides">
+                                        <a href="#"><img src="http://placehold.it/870x373" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>LATEST FASHION</h1>
+                                            <p><span>30%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                        </div>
+                                    </div>
+                                    <div class="slides">
+                                        <a href="#"><img src="http://placehold.it/870x373" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>AWESOME FURNITUR</h1>
+                                            <p><span>50%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                        </div>
+                                    </div>
+                                    <div class="slides">
+                                        <a href="#"><img src="http://placehold.it/870x373" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>LATEST FASHION</h1>
+                                            <p><span>30%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <a href="#" class="next"></a>
+                                <a href="#" class="prev"></a>
+                                <div class="slider-btn"></div>
+                            </div>
+                            <!-- SLIDER -->
+
+                            <!-- SPECIAL-OFFER -->
+                            <div class="span3">
+                                <div class="offers">
+                                    <figure>
+                                        <a href="#"><img src="http://placehold.it/270x171" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>SUMMER<span> COLLECTION 35% OFF</span> <small>  - Limited Offer</small></h1>
+                                        </div>
+                                    </figure>
+                                </div>
+
+                                <div class="offers">
+                                    <figure>
+                                        <a href="#"><img src="http://placehold.it/270x171" alt=""></a>
+                                        <div class="overlay">
+                                            <h1>SUMMER<span> COLLECTION 35% OFF</span> <small>  - Limited Offer</small></h1>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- SPECIAL-OFFER -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT-OFFER -->
+                <div class="product_wrap">
+                    <div class="container">
+                        <div class="row heading-wrap">
+                            <div class="span12 heading">
+                                <h2>Featured Products <span></span></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            {% for item in category_1_items %}
+                            <div class="span3 product">
+
+                                <div>
+                                    <figure>
+                                        <a href="#"><img src="{{item.image_url}}" alt=""></a>
+                                        <div class="overlay">
+                                            <a href="{{item.image_url}}" class="zoom prettyPhoto"></a>
+                                        </div>
+                                    </figure>
+                                    <div class="detail">
+                                        <a href="{% url 'itemPage' item.slug %}">
+                                        <span>${{item.price}}</span>
+                                        <h3>{{item.name}}</h3>
+                                        <p><span>Brand:</span> {{item.item_brand}}</p>
+                                        <p><span>Category:</span> {{item.item_category}}</p>
+                                        </a>
+                                        <!--<div class="icon">
+                                            <a href="{{item.id}}" class="one tooltip" title="Add to wish list"></a>
+                                        </div>-->
+                                    </div>
+                                </div>
+
+                            </div>
+                               
+                            {% endfor %}
+
+                            {% for item in category_2_items %}
+                            <div class="span3 product">
+
+                                <div>
+                                    <figure>
+                                        <a href="#"><img src="{{item.image_url}}" alt=""></a>
+                                        <div class="overlay">
+                                            <a href="{{item.image_url}}" class="zoom prettyPhoto"></a>
+                                        </div>
+                                    </figure>
+                                    <div class="detail">
+                                        <a href="{% url 'itemPage' item.slug %}">
+                                        <span>${{item.price}}</span>
+                                        <h3>{{item.name}}</h3>
+                                        <p><span>Brand:</span> {{item.item_brand}}</p>
+                                        <p><span>Category:</span> {{item.item_category}}</p>
+                                        </a>
+                                        <!--<div class="icon">
+                                            <a href="{{item.id}}" class="one tooltip" title="Add to wish list"></a>
+                                        </div>-->
+                                    </div>
+                                </div>
+
+                            </div>
+                               
+                            {% endfor %}
+
+                            {% for item in category_3_items %}
+                            <div class="span3 product">
+
+                                <div>
+                                    <figure>
+                                        <a href="#"><img src="{{item.image_url}}" alt=""></a>
+                                        <div class="overlay">
+                                            <a href="{{item.image_url}}" class="zoom prettyPhoto"></a>
+                                        </div>
+                                    </figure>
+                                    <div class="detail">
+                                        <a href="{% url 'itemPage' item.slug %}">
+                                        <span>${{item.price}}</span>
+                                        <h3>{{item.name}}</h3>
+                                        <p><span>Brand:</span> {{item.item_brand}}</p>
+                                        <p><span>Category:</span> {{item.item_category}}</p>
+                                        </a>
+                                        <!--<div class="icon">
+                                            <a href="{{item.id}}" class="one tooltip" title="Add to wish list"></a>
+                                        </div>-->
+                                    </div>
+                                </div>
+
+                            </div>
+                               
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- PRODUCT-OFFER -->
+
+                <!-- CLIENTS -->
+                <div class="clients-wrap">
+                    <div class="container">
+                        <div class="row heading-wrap">
+                            <div class="span12 heading">
+                                <h2>Our Brands <span></span></h2>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="span12 clients">
+                                <ul class="elastislide-list clearfix" id="carousel">
+                                    {% for brand in brands %}
+                                        <li><a href="#"><img class=" "src="{{brand.image_url}}" alt=""></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CLIENTS -->
+
+                <!-- CATEGORIES -->
+                <div class="categories-wrap">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span4">
+                                <div class="categories">
+                                    <figure>
+                                        <img src="http://placehold.it/370x133" alt="">
+                                        <div class="cate-overlay">
+                                            <a href="#">Single Seat</a>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="span4">
+                                <div class="categories">
+                                    <figure>
+                                        <img src="http://placehold.it/370x133png" alt="">
+                                        <div class="cate-overlay">
+                                            <a href="#">Surfaces</a>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="span4">
+                                <div class="categories">
+                                    <figure>
+                                        <img src="http://placehold.it/370x133" alt="">
+                                        <div class="cate-overlay">
+                                            <a href="#">Storage</a>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- CATEGORIES -->
+
+
+{% endblock %}

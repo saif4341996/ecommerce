@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Ecommerce | Homepage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	{% load staticfiles %}
+	<!-- JS SCRIPTS -->
+	<script src="/static/ecomerce/js/jquery-1.9.1.min.js"></script>
+	<script src="/static/ecomerce/js/jquery-3.3.1.min.js"></script>
+	<script src="/static/ecomerce/js/jquery-ui.js"></script>
+	<script src="/static/ecomerce/js/jquery.cycle.all.js"></script>
+	<script src="/static/ecomerce/js/modernizr.custom.17475.js"></script>
+	<script src="/static/ecomerce/js/jquery.elastislide.js"></script>
+	<script src="/static/ecomerce/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+	<script src="/static/ecomerce/js/jquery.selectBox.js"></script>
+	<script src="/static/ecomerce/js/jquery.tooltipster.min.js"></script>
+	<script src="/static/ecomerce/js/jquery.prettyPhoto.js"></script>
+	<script src="/static/ecomerce/js/custom.js"></script>	
+    <!-- CSS STYLESHEETS -->
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,600,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'ecomerce/css/tooltipster.css' %}">
+    <link rel="stylesheet" href="{% static 'ecomerce/css/ie.css' %}" media="all">
+    <link rel="stylesheet" href="{% static 'ecomerce/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'ecomerce/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'ecomerce/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'ecomerce/css/prettyPhoto.css' %}">
+
+ <link rel="shortcut icon" href="{% static 'ecomerce/images/favicon.jpg' %}">
+</head>
+<body>
+				<!-- HEADER -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span5">
+                                <div class="logo">
+                                    <a href="{% url "home" %}"><img src="{% static 'ecomerce/images/logo.png' %}" alt=""></a>
+                                    <h1><a href="index.html">Ultra Customizable<span> Ecommerce </span>Theme</a></h1>
+                                </div>
+                            </div>
+
+                            <div class="span5 account">
+                                <a href=""><h3>My Account</h3></a>
+                            </div>
+
+                            <div class="span2">
+                                <div class="cart">
+                                    <ul>
+                                        <li class="first"><a href="{% url 'cart'%}"></a><span></span></li>
+                                        <li><p id="cartItemInfo">{{totalItems}} Items - ${{totalPrice}}</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <nav class="desktop-nav">
+                                    <ul class="clearfix">
+                                        
+                                        <li>
+                                            <a href="#">CATEGORIES</a>
+                                            <ul class="clearfix menu-four">
+                                                {% for category in categories%}
+                                                    <li class="clearfix">
+                                                        
+                                                            <h3><a href="{% url 'categoryPage' category.slug %}">{{category}}</a></h3>
+                                                        
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+				<!-- HEADER -->
+
+                <div>
+                {% block content %} 
+
+                {% endblock %}
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="shipping-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <div class="shipping">
+                                    <p><span>FREE SHIPPING </span> Offered by MAXSHOP - lorem ipsum dolor sit amet mauris accumsan vitate odio tellus</p>
+                                    <a href="#" class="button">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-wrap">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="footer clearfix">
+
+                                <div class="span3">
+                                    <div class="widget">
+                                        <h3>Customer Service</h3>
+                                        <ul>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Delivery Information</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Terms & Conditions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="widget">
+                                        <h3>Information</h3>
+                                        <ul>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Delivery Information</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Terms & Conditions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="widget">
+                                        <h3>My Account</h3>
+                                        <ul>
+                                            <li><a href="#">My Account</a></li>
+                                            <li><a href="#">Order History</a></li>
+                                            <li><a href="#">Wish List</a></li>
+                                            <li><a href="#">Newsletter</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="widget">
+                                        <h3>Contact us</h3>
+                                        <ul>
+                                            <li>support@maxshop.com</li>
+                                            <li>+38649 123 456 789 00</li>
+                                            <li>Lorem ipsum address street no 24 b41</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <footer class="clearfix">
+                                <div class="span5">
+                                    <p>© 2013 Maxshop Design, All Rights Reserved</p>
+                                </div>
+                                <div class="span2 back-top">
+                                    <a href="#"> <img src="images/back.png" alt=""></a>
+                                </div>
+                                <div class="span5">
+                                    <div class="social-icon">
+                                        <a class="rss" href=""></a>
+                                        <a class="twet" href=""></a>
+                                        <a class="fb" href=""></a>
+                                        <a class="google" href=""></a>
+                                        <a class="pin" href=""> </a>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <!-- FOOTER -->
+</body>
+</html>

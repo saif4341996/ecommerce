@@ -1,0 +1,52 @@
+{% extends "ecomerce/header.html" %}
+
+{% block content %}
+
+<div id="main" class="container">
+        <div class="row heading-wrap">
+            <div class="span12 heading">
+                 <h2>Brands that offer packages<span></span></h2>
+                
+            </div>
+        </div>
+
+        <div>
+                <div class="row">
+                    
+                    {% for brand in brands_that_offer_package %}                        
+                            <div class="span3 product">    
+                                <div>
+                                    <figure>
+                                        <a href="#"><img src="{{brand.image_url}}" alt=""></a>
+                                        <div class="overlay">
+                                            <a href="{{brand.image_url}}" class="zoom prettyPhoto"></a>
+                                        </div>
+                                    </figure>
+                                    
+                                    <div class="detail">
+                                    
+                                        <a href="{% url 'brand-package-info' brand.slug %}"><h3>{{brand.name}} (Click to view)</h3>
+                                        {% for key, value in brands_that_offer_package_total_price.items %}
+                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                <span>${{value}}</span>
+                                            {% endif  %}
+                                        {% endfor %}
+                                        </a>
+                                        <hr>
+                                        <a href="{% url 'final-thank-you' %}"><h3>Buy This</h3></a>
+                                
+                                    </div>
+                                </div>
+                            
+                            </div>
+                    {% empty %}
+                        <h1>OOPS!! NO PACKAGES FOUND. WE ARE UNABLE TO FULFIL YOUR ORDER</h1>                    
+                    {% endfor %}
+                
+                </div>  
+        </div>
+
+    </div>
+
+               
+{% endblock %}

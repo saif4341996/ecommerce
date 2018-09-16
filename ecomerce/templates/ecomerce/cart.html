@@ -1,0 +1,66 @@
+{% extends "ecomerce/header.html" %}
+
+{% block content %}
+    <script type="text/javascript">
+
+    function AjaxRemove(remove_url) {
+        $.ajax({
+            url: remove_url,
+            success: function(response) 
+            {
+                alert(response);
+                location.reload(true);
+            },
+            error: function(response) {alert(response);}  
+        })
+    }
+</script>
+    <!-- PRODUCT-OFFER -->
+                <div class="product_wrap">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <div class="shopping-cart">
+
+                                    <ul class="title clearfix">
+                                        <li>Image</li>
+                                        <li class="second">Product Name</li>
+                                        <li>Quantity</li>
+                                        <li>Sub Total</li>
+                                        <li class="last">Action</li>
+                                    </ul>
+                                    {% for item in itemsToBuy %}
+                                        <ul class=" clearfix">
+                                            <li>
+                                                <figure><img src="{{item.image_url}}" alt=""></figure>
+                                            </li>
+                                            <li class="second">
+                                                <h4>{{item.name}}</h4>
+                                                <p><span>Brand:</span> {{item.item_brand}}</p>
+                                                <p><span>Category:</span> {{item.item_category}}</p>
+                                            </li>
+                                            <li>
+                                                <input type="number" value="1">
+                                            </li>
+                                            <li>{{item.price}}</li>
+                                            <li class="last"><a href="" onclick='AjaxRemove("{% url 'remove-item-from-cart' %}?id={{item.id}}")'>X</a></li>
+                                        </ul>
+                                    {% endfor %}
+                                    {% if totalItems != '0' %}
+                                        <a href="{% url 'choose-package' %}" class="red-button">Continue Shopping</a>
+                                    {% else %}
+                                        <a href="" class="red-button">Continue Shopping</a>
+                                    {% endif %}
+                                    <a href="#" class="red-button black">Update Shopping Cart</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PRODUCT-OFFER -->
+
+
+
+{% endblock %}
